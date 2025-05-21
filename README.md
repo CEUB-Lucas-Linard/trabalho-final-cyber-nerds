@@ -1,3 +1,8 @@
+# my_gym
+
+A new Flutter project.
+=======
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19535798&assignment_repo_type=AssignmentRepo)
 # PDM-Trabalho-Final
 
 # SUGESTÕES DE APLICATIVOS EM FLUTTER
@@ -281,3 +286,4 @@ Cada uma recebe menção na escala acima, com base nos critérios descritos a se
 
 - A **menção final** em cada aspecto deve refletir **o nível predominante** observado no projeto.
 - O professor pode realizar um balanceamento, considerando também **entregas parciais**, **evolução** ao longo do desenvolvimento e a **consistência geral** entre documentação, código e design.
+>>>>>>> 6e7a8909c81c04658bcab1b027759583d65656b5
