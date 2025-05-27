@@ -20,11 +20,12 @@ class _HomePageState extends State<HomePage> {
         title: const Text('MyGym'),
         backgroundColor: Colors.black,
         centerTitle: true,
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 20
-          ),),
+          fontSize: 20,
+        ),
+      ),
       body: Column(
         children: [
           const SizedBox(height: 20),
@@ -57,6 +58,25 @@ class _HomePageState extends State<HomePage> {
                 : 'Selecione um dia para ver ou adicionar treino',
             style: const TextStyle(fontSize: 16),
           ),
+          const SizedBox(height: 30),
+          ElevatedButton(
+  onPressed: () {
+    Navigator.of(context).pushNamed('/cadastro');
+  },
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.black,
+    foregroundColor: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+  ),
+  child: const Text(
+    'Cadastrar Exercício',
+    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+  ),
+)
+
         ],
       ),
       floatingActionButton: FloatingActionButton(

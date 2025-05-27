@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'screens/home_page.dart';
+import 'screens/cadastro_exercicio.dart';
+
 void main() {
   runApp(const GymApp());
 }
@@ -15,6 +17,9 @@ class GymApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       home: const HomePage(),
+      routes: {
+        '/cadastro': (ctx) => const CadastroExercicioScreen(),
+      },
     );
   }
 }
