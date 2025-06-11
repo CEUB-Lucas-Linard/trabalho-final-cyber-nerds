@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ExercicioForm extends StatefulWidget {
   final Function(String, String, String) onSubmit;
-
+ final TextEditingController _durationController = TextEditingController();
   const ExercicioForm({super.key, required this.onSubmit});
 
   @override
@@ -37,10 +37,11 @@ class _ExercicioFormState extends State<ExercicioForm> {
   String? nomeSelecionado;
   String? descricaoSelecionada;
   String? grupoMuscularAtual;
+  final TextEditingController _durationController = TextEditingController();
 
   void _submit() {
     if (nomeSelecionado == null || descricaoSelecionada == null || grupoMuscularAtual == null) return;
-
+ final duration = int.tryParse(_durationController.text) ?? 0;
     widget.onSubmit(nomeSelecionado!, descricaoSelecionada!, grupoMuscularAtual!);
 
     setState(() {
@@ -48,6 +49,7 @@ class _ExercicioFormState extends State<ExercicioForm> {
       descricaoSelecionada = null;
       grupoMuscularAtual = null;
     });
+ _durationController.clear();
   }
 
   Widget _buildDropdown({
@@ -103,6 +105,26 @@ class _ExercicioFormState extends State<ExercicioForm> {
         ),
         const SizedBox(height: 10),
         _buildDropdown(
+ label: 'Duração (minutos)',
+ value: null, // Não há valor selecionado para o campo de texto
+ options: [], // Nenhuma opção para o campo de texto
+ onChanged: (value) {}, // Nada a fazer no onChanged para o campo de texto
+ ),
+        TextFormField(
+ controller: _durationController,
+ keyboardType: TextInputType.number,
+ decoration: InputDecoration(
+ labelText: 'Duração (minutos)',
+ filled: true,
+ fillColor: const Color(0xFFFFF176),
+ border: OutlineInputBorder(
+ borderRadius: BorderRadius.circular(10),
+ borderSide: const BorderSide(color: Colors.black),
+ ),
+ ),
+ ),
+ const SizedBox(height: 10),
+        _buildDropdown(
           label: 'Descrição',
           value: descricaoSelecionada,
           options: descricoes,
@@ -121,6 +143,7 @@ class _ExercicioFormState extends State<ExercicioForm> {
               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
+ const SizedBox(height: 10),
         const SizedBox(height: 20),
         ElevatedButton(
           onPressed: _submit,
